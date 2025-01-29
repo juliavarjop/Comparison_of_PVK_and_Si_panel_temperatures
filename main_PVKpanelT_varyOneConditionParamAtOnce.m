@@ -57,7 +57,7 @@ BsolarTot = sum(Bsolar*dLambda);
 % Ambient temperature % 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCTamb';
+pathFolder ='.\PSCTamb';
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
 mkdir(FolderErrorLog);
@@ -67,7 +67,7 @@ Tstc = 293.15; % K
 Tcell = Tstc; % K
 
 % Weather conditions
-Tamb = 20; %[-20 -10 0 10 20 30 40 50]; % C
+Tamb = [-20 -10 0 10 20 30 40 50]; % C
 Irradiance = 800; % W/m^2
 v_wind = 1; % m/s (unitless in comsol model)
 
@@ -203,7 +203,7 @@ save([pathFolder,'\workspace.mat'])
 % Solar irradiance 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCIrr';
+pathFolder ='.\PSCIrr';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -214,7 +214,7 @@ Tstc = 293.15; % K
 
 % Weather conditions
 Tamb = 20; % C
-Irradiance = 800; %[100 200 300 400 500 600 700 800 900 1000 1100 1200]; % W/m^2
+Irradiance = [100 200 300 400 500 600 700 800 900 1000 1100 1200]; % W/m^2
 v_wind = 1; % m/s (unitless in comsol model)
 
 % Panel design
@@ -347,7 +347,7 @@ save([pathFolder,'\workspace.mat'])
 % Wind speed %
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCwind';
+pathFolder ='.\PSCwind';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -359,7 +359,7 @@ Tstc = 293.15; % K
 % Weather conditions
 Tamb = 20; % C
 Irradiance = 800; % W/m^2
-v_wind = 1; %[0 1 2 3 4 5 6 7 8 9 10]; % m/s (unitless in comsol model)
+v_wind = [0 1 2 3 4 5 6 7 8 9 10]; % m/s (unitless in comsol model)
 
 % Panel design
 cellDistance = 1; %cm
@@ -535,7 +535,7 @@ BsolarTot = sum(Bsolar*dLambda);
 % Ambient temperature % 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\SiTamb';
+pathFolder ='.\SiTamb';
 % 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -545,7 +545,7 @@ mkdir(FolderErrorLog);
 Tstc = 293.15; % K
 
 % Weather conditions
-Tamb = 20; %[-20 -10 0 10 20 30 40 50]; % C
+Tamb = [-20 -10 0 10 20 30 40 50]; % C
 Irradiance = 800; % W/m^2
 v_wind = 1; % m/s (unitless in comsol model)
 
@@ -677,7 +677,7 @@ save([pathFolder,'\workspace.mat'])
 % % Solar irradiance 
 
 % % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\SiIrr';
+pathFolder ='.\SiIrr';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -688,7 +688,7 @@ Tstc = 293.15; % K
 
 % Weather conditions
 Tamb = 20; % C
-Irradiance = 800; % [100 200 300 400 500 600 700 800 900 1000 1100 1200]; % W/m^2
+Irradiance = [100 200 300 400 500 600 700 800 900 1000 1100 1200]; % W/m^2
 v_wind = 1; % m/s (unitless in comsol model)
 
 % Panel design
@@ -819,7 +819,7 @@ save([pathFolder,'\workspace.mat'])
 % Wind speed
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\Siwind';
+pathFolder ='.\Siwind';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -831,7 +831,7 @@ Tstc = 293.15; % K
 % Weather conditions
 Tamb = 20; % C
 Irradiance = 800; % W/m^2
-v_wind = 1; %[0 1 2 3 4 5 6 7 8 9 10]; % m/s (unitless in comsol model)
+v_wind = [0 1 2 3 4 5 6 7 8 9 10]; % m/s (unitless in comsol model)
 
 % Panel design
 cellDistance = 1; %cm
