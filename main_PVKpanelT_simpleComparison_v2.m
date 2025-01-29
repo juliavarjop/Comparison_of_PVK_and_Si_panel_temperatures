@@ -57,7 +57,7 @@ BsolarTot = sum(Bsolar*dLambda);
 % Ambient temperature % 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCTamb';
+pathFolder ='.\PSCTamb';
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
 mkdir(FolderErrorLog);
@@ -203,7 +203,7 @@ save([pathFolder,'\workspace.mat'])
 % Solar irradiance 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCIrr';
+pathFolder ='.\PSCIrr';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -347,7 +347,7 @@ save([pathFolder,'\workspace.mat'])
 % Wind speed %
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\PSCwind';
+pathFolder ='.\PSCwind';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -535,7 +535,7 @@ BsolarTot = sum(Bsolar*dLambda);
 % Ambient temperature % 
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\SiTamb';
+pathFolder ='.\SiTamb';
 % 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -677,7 +677,7 @@ save([pathFolder,'\workspace.mat'])
 % % Solar irradiance 
 
 % % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\SiIrr';
+pathFolder ='.\SiIrr';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
@@ -819,7 +819,7 @@ save([pathFolder,'\workspace.mat'])
 % Wind speed
 
 % Folder
-pathFolder ='C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\OpenAccessFiles\Siwind';
+pathFolder ='.\Siwind';
 
 % Error log
 FolderErrorLog = [pathFolder,'\errorLog'];
