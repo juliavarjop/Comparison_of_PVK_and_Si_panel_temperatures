@@ -1,14 +1,11 @@
 
 function [model,TcellAve,TcellAveTop,TcellAveBack,TmodAve,TcellMax,Conv_AveTop,Conv_AveBack,Conv_AveSide,Rad_AveTop,Rad_AveBack,Rad_AveSide,CutLineCells,CutLineTop,CutLineBack,CutLineCellsX,CutLineTopX,CutLineBackX] = SipanelTcomsolModel_v6(Tamb,v_wind,cellDistance,Qcell,pathFolder,Tcell_init)
-% SipanelTcomsolModel_v5.m
-%
+
 % Model exported on Jul 1 2024, 13:40 by COMSOL 6.2.0.290.
 
 % Geometry Glass (3 mm) EVA (0.5 mm) Silicon (0.2 mm) EVA (0.5 mm) Glass (3 mm)
 
 % With min mesh size 0.02
-
-%%% 22.1.2024 version %%%
 
 % Import comsol packages
 import com.comsol.model.*
@@ -477,37 +474,4 @@ model.result('pg1').feature('line1').set('coloring', 'uniform');
 model.result('pg1').feature('line1').set('color', 'fromtheme');
 model.result('pg1').feature('line1').set('smooth', 'internal');
 model.result('pg1').feature('line1').set('resolution', 'normal');
-model.result.export('tbl1').label('TcellAvg');
-model.result.export('tbl1').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\SiTcellAvg.txt']);
-model.result.export('tbl2').label('TmodAvg');
-model.result.export('tbl2').set('table', 'tbl2');
-model.result.export('tbl2').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\SiTmodAvg.txt']);
-model.result.export('tbl3').label('TcellMax');
-model.result.export('tbl3').set('table', 'tbl3');
-model.result.export('tbl3').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\SiTcellMax.txt']);
-model.result.export('data1').label('Sicut_NOCTv2');
-model.result.export('data1').set('data', 'cln1');
-model.result.export('data1').set('expr', {'T' 'x'});
-model.result.export('data1').set('unit', {'K' 'm'});
-model.result.export('data1').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data1').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\NOCT\Sicut_NOCTv2.txt']);
-model.result.export('data2').label('SiTopCut_NOCTv2');
-model.result.export('data2').set('data', 'cln2');
-model.result.export('data2').set('expr', {'T' 'x'});
-model.result.export('data2').set('unit', {'K' 'm'});
-model.result.export('data2').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data2').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\NOCT\SiTopCut_NOCTv2.txt']);
-model.result.export('data3').label('SiBackCut_NOCTv2');
-model.result.export('data3').set('data', 'cln3');
-model.result.export('data3').set('expr', {'T' 'x'});
-model.result.export('data3').set('unit', {'K' 'm'});
-model.result.export('data3').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data3').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\NOCT\SiBackCut_NOCTv2.txt']);
-model.result.export('tbl4').label('TaveTopSurface');
-model.result.export('tbl4').set('table', 'tbl4');
-model.result.export('tbl4').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\NOCT\TaveTopSurface.txt']);
-model.result.export('tbl5').label('TaveBackSurface');
-model.result.export('tbl5').set('table', 'tbl5');
-model.result.export('tbl5').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\MATLAB\Comsol-Matlab\PSC and Si panel T\NOCT\TaveBackSurface.txt']);
-
 end
