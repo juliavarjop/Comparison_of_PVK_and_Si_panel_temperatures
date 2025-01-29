@@ -31,17 +31,6 @@ model.param.set('y_panel', 'ncy*y_cell+(ncy+1)*l', 'Depth (y-direction)');
 model.param.set('z_panel', '2*z_glass+z_eva', 'Height (z-direction)');
 model.param.set('minm', '0.02[m]', 'Min mesh size');
 model.param.set('maxm', '0.2[m]', 'Max mesh size');
-model.param.set('J', '20[mA/cm^2]', 'Current density');
-model.param.set('V_bd', '2[V]', 'Breakdown voltage');
-model.param.set('d', '1[cm]', 'Diameter of hotspot');
-model.param.set('A_cell', 'x_cell*y_cell', 'Area of cell');
-model.param.set('A_hs', 'pi*(d/2)^2', 'Area of hotspot');
-model.param.set('I', 'J*A_cell', 'Current');
-model.param.set('J_hs', 'I/A_hs', 'Current density of hotspot');
-model.param.set('Q', '(J_hs*V_bd)/z_psc', 'Hotspot heat source');
-model.param.set('x0', '1*l+0.5*x_cell', 'Hotspots origin x-coordinate');
-model.param.set('y0', '1*l+0.5*y_cell', 'Hotspots origin y-coordinate');
-
 
 % Comsol model component
 
