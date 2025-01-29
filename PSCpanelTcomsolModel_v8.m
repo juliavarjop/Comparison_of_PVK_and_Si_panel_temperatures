@@ -1,12 +1,9 @@
 function [model,TcellAve,TcellAveTop,TcellAveBack,TmodAve,TcellMax,Conv_AveTop,Conv_AveBack,Conv_AveSide,Rad_AveTop,Rad_AveBack,Rad_AveSide,CutLineCells,CutLineTop,CutLineBack,CutLineCellsX,CutLineTopX,CutLineBackX]=PSCpanelTcomsolModel_v8(Tamb,v_wind,cellDistance,Qcell,pathFolder,Tcell_init)
-% panel_3D_thermal_model19_v3.m
-%
+
 % Model exported on May 16 2024, 11:03 by COMSOL 6.2.0.290.
 
 % min mesh size 0.02
 % max mesh size 0.2
-
-% Average temperature of (1) cells, module, top surface and back surface, (2) maximum temperature of cells and (3) module temperature at cell, top and back levels using cutline
 
 % Import comsol packages
 import com.comsol.model.*
@@ -16,8 +13,6 @@ import com.comsol.model.util.*
 model = ModelUtil.create('Model');
 
 model.modelPath(pathFolder)
-
-% model.label('3D_panel_thermal_model19.mph');
 
 model.param.set('Tamb', [num2str(Tamb), '[degC]'], 'Ambient temperature');
 model.param.set('v_wind', num2str(v_wind), 'Wind speed');
@@ -35,17 +30,6 @@ model.param.set('y_panel', 'ncy*y_cell+(ncy+1)*l', 'Depth (y-direction)');
 model.param.set('z_panel', '2*z_glass+z_eva', 'Height (z-direction)');
 model.param.set('minm', '0.02[m]', 'Min mesh size');
 model.param.set('maxm', '0.2[m]', 'Max mesh size');
-model.param.set('J', '20[mA/cm^2]', 'Current density');
-model.param.set('V_bd', '2[V]', 'Breakdown voltage');
-model.param.set('d', '1[cm]', 'Diameter of hotspot');
-model.param.set('A_cell', 'x_cell*y_cell', 'Area of cell');
-model.param.set('A_hs', 'pi*(d/2)^2', 'Area of hotspot');
-model.param.set('I', 'J*A_cell', 'Current');
-model.param.set('J_hs', 'I/A_hs', 'Current density of hotspot');
-model.param.set('Q', '(J_hs*V_bd)/z_psc', 'Hotspot heat source');
-model.param.set('x0', '1*l+0.5*x_cell', 'Hotspots origin x-coordinate');
-model.param.set('y0', '1*l+0.5*y_cell', 'Hotspots origin y-coordinate');
-
 
 % Comsol model component
 
@@ -499,38 +483,3 @@ model.result('pg1').feature('line1').set('coloring', 'uniform');
 model.result('pg1').feature('line1').set('color', 'fromtheme');
 model.result('pg1').feature('line1').set('smooth', 'internal');
 model.result('pg1').feature('line1').set('resolution', 'normal');
-model.result.export('tbl1').label('Surface Average Cells');
-model.result.export('tbl1').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\TaveCells.txt']);
-model.result.export('tbl2').label('Surface Average Module');
-model.result.export('tbl2').set('table', 'tbl2');
-model.result.export('tbl2').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\TaveMod.txt']);
-model.result.export('tbl3').label('Surface Maximum Cells');
-model.result.export('tbl3').set('table', 'tbl3');
-model.result.export('tbl3').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\TmaxCells.txt']);
-model.result.export('tbl4').label('TaveTopSurface');
-model.result.export('tbl4').set('table', 'tbl4');
-model.result.export('tbl4').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\TaveTopSurface.txt']);
-model.result.export('tbl5').label('TaveBackSurface');
-model.result.export('tbl5').set('table', 'tbl5');
-model.result.export('tbl5').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\TaveBackSurface.txt']);
-model.result.export('data1').label('PSCcut_NOCTv2');
-model.result.export('data1').set('data', 'cln1');
-model.result.export('data1').set('expr', {'T' 'x'});
-model.result.export('data1').set('unit', {'K' 'm'});
-model.result.export('data1').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data1').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\PSCcut_NOCTv2.txt']);
-model.result.export('data2').label('PSCBackSurfaceCut_NOCTv2');
-model.result.export('data2').set('data', 'cln2');
-model.result.export('data2').set('expr', {'T' 'x'});
-model.result.export('data2').set('unit', {'K' 'm'});
-model.result.export('data2').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data2').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\PSCBackSurfaceCut_NOCTv2.txt']);
-model.result.export('data3').label('PSCTopSurfaceCut_NOCTv2');
-model.result.export('data3').set('data', 'cln3');
-model.result.export('data3').set('expr', {'T' 'x'});
-model.result.export('data3').set('unit', {'K' 'm'});
-model.result.export('data3').set('descr', {'Temperature' 'x-coordinate'});
-model.result.export('data3').set('filename', ['C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Ty' native2unicode(hex2dec({'00' 'f6'}), 'unicode') 'jutut\Solar panel modelling\PSC models\PSC panel\PSC panel1.9\PSCTopSurfaceCut_NOCTv2.txt']);
-
-end
-
