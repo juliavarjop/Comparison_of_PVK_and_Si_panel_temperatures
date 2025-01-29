@@ -483,3 +483,5 @@ model.result('pg1').feature('line1').set('coloring', 'uniform');
 model.result('pg1').feature('line1').set('color', 'fromtheme');
 model.result('pg1').feature('line1').set('smooth', 'internal');
 model.result('pg1').feature('line1').set('resolution', 'normal');
+
+end
