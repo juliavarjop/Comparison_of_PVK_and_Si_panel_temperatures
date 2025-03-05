@@ -1,11 +1,5 @@
 function [model,TcellAve,TcellAveTop,TcellAveBack,TmodAve,TcellMax,Conv_AveTop,Conv_AveBack,Conv_AveSide,Rad_AveTop,Rad_AveBack,Rad_AveSide,CutLineCells,CutLineTop,CutLineBack,CutLineCellsX,CutLineTopX,CutLineBackX]=PSCpanelTcomsolModel_v8(Tamb,v_wind,cellDistance,Qcell,pathFolder,Tcell_init)
 
-% Model exported on May 16 2024, 11:03 by COMSOL 6.2.0.290.
-
-% min mesh size 0.02
-% max mesh size 0.2
-
-
 % Import comsol packages
 import com.comsol.model.*
 import com.comsol.model.util.*
@@ -180,13 +174,6 @@ model.result.table('tbl13').comments('Surface Average, Side Conv');
 model.result.table('tbl14').comments('Surface Average, Back Rad');
 model.result.table('tbl15').comments('Surface Average, Side Rad');
 
-% model.result.table('tbl6').comments('Surface Average 5');
-% model.result.table('tbl7').comments('Surface Average 5');
-% model.result.table('tbl8').comments('Surface Average 6');
-% model.result.table('tbl9').comments('Surface Integration 1');
-% model.result.table('tbl10').comments('Surface Average 7');
-% model.result.table('tbl11').comments('Surface Average 8');
-
 model.component('comp1').view('view1').set('transparency', true);
 model.component('comp1').view('view2').axis.set('xmin', -0.5633813738822937);
 model.component('comp1').view('view2').axis.set('xmax', 0.9398062825202942);
@@ -275,11 +262,6 @@ model.result.numerical('int6').selection.named('sel2');
 model.result.numerical('int7').selection.set([3]);
 model.result.numerical('int8').selection.set([1 2 4 5 7 8 11 12 13 86 87 88]);
 
-% model.result.numerical('av5').selection.set([10]);
-% model.result.numerical('av6').selection.named('sel2');
-% model.result.numerical('av7').selection.set([10]);
-% model.result.numerical('av8').selection.named('sel2');
-
 model.result.create('pg1', 'PlotGroup3D');
 model.result('pg1').selection.geom('geom1', 3);
 model.result('pg1').selection.set([1 2 3]);
@@ -350,35 +332,6 @@ model.result.numerical('av3').label('Surface Average, Top Surface');
 model.result.numerical('av3').set('table', 'tbl4');
 model.result.numerical('av4').label('Surface Average, Back Surface');
 model.result.numerical('av4').set('table', 'tbl5');
-% model.result.numerical('av5').label('Surface Average, Top Conv');
-% model.result.numerical('av5').set('table', 'tbl7');
-% model.result.numerical('av5').set('expr', {'ht.hf1.q0'});
-% model.result.numerical('av5').set('unit', {'W/m^2'});
-% model.result.numerical('av5').set('descr', {'Boundary convective heat flux'});
-% model.result.numerical('av6').label('Surface Average, Back Conv');
-% model.result.numerical('av6').set('table', 'tbl8');
-% model.result.numerical('av6').set('expr', {'ht.hf2.q0'});
-% model.result.numerical('av6').set('unit', {'W/m^2'});
-% model.result.numerical('av6').set('descr', {'Boundary convective heat flux'});
-% model.result.numerical('av7').label('Surface Average, Top Rad');
-% model.result.numerical('av7').set('table', 'tbl10');
-% model.result.numerical('av7').set('expr', {'ht.sar1.rflux'});
-% model.result.numerical('av7').set('unit', {'W/m^2'});
-% model.result.numerical('av7').set('descr', {'Radiative heat flux'});
-% model.result.numerical('av8').label('Surface Average, Back Rad');
-% model.result.numerical('av8').set('table', 'tbl11');
-% model.result.numerical('av8').set('expr', {'ht.sar2.rflux'});
-% model.result.numerical('av8').set('unit', {'W/m^2'});
-% model.result.numerical('av8').set('descr', {'Radiative heat flux'});
-% model.result.numerical('av1').setResult;
-% model.result.numerical('av2').setResult;
-% model.result.numerical('max1').setResult;
-% model.result.numerical('av3').setResult;
-% model.result.numerical('av4').setResult;
-% model.result.numerical('av5').setResult;
-% model.result.numerical('av6').setResult;
-% model.result.numerical('av7').setResult;
-% model.result.numerical('av8').setResult;
 model.result.numerical('int1').label('Surface Int, Top Conv');
 model.result.numerical('int1').set('table', 'tbl6');
 model.result.numerical('int1').set('expr', {'ht.hf1.q0'});
@@ -441,22 +394,18 @@ TcellAveBack = model.result.numerical('av4').getReal();
 TmodAve = model.result.numerical('av2').getReal();
 TcellMax = model.result().numerical('max1').getReal();
 
-% Conv_AveTop = model.result().numerical('av5').getReal();
-% Conv_AveBack = model.result().numerical('av6').getReal();
-% Rad_AveTop = model.result().numerical('av7').getReal();
-% Rad_AveBack = model.result().numerical('av8').getReal();
 
 % Convective Heat Fluxes
-Conv_AveTop = model.result().numerical('int1').getReal();           
-Conv_AveBackAndSide = model.result().numerical('int2').getReal();   
-Conv_AveBack = model.result().numerical('int3').getReal();          
-Conv_AveSide = model.result().numerical('int4').getReal();          
+Conv_AveTop = model.result().numerical('int1').getReal();            %('int1').label('Surface Average, Top Conv');
+Conv_AveBackAndSide = model.result().numerical('int2').getReal();    %('int2').label('Surface Average, BackAndSide Conv');
+Conv_AveBack = model.result().numerical('int3').getReal();          %('int3').label('Surface Average, Back Conv');
+Conv_AveSide = model.result().numerical('int4').getReal();          %('int4').label('Surface Average, Side Conv');
 
 % Radiative Heat Fluxes 
-Rad_AveTop = model.result().numerical('int5').getReal();         
-Rad_AveBackAndSide = model.result().numerical('int6').getReal();
-Rad_AveBack = model.result().numerical('int7').getReal();       
-Rad_AveSide = model.result().numerical('int8').getReal();     
+Rad_AveTop = model.result().numerical('int5').getReal();         %('int5').label('Surface Average, Top Rad');
+Rad_AveBackAndSide = model.result().numerical('int6').getReal(); %('int6').label('Surface Average, BackandSide Rad');
+Rad_AveBack = model.result().numerical('int7').getReal();       %('int7').label('Surface Average, Back Rad');
+Rad_AveSide = model.result().numerical('int8').getReal();       %('int8').label('Surface Average, Side Rad');
 
 CutLineCells = mphinterp(model,'T','dataset','cln1');
 CutLineTop = mphinterp(model,'T','dataset','cln3');
