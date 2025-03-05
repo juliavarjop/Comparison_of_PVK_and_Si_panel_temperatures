@@ -1,8 +1,6 @@
 
 % The data simulated in varying combinations of ambient conditions (main_PVKpanelT_simpleComparison_AllConditions.m)
-% load('ExampleData.mat')
-
-load('C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\Comsol-Matlab-Final\SiAllCond_intensity_v1\workspace.mat')
+% load('ExampleDataSilicon.mat')
 
 indDataPoint = 1;
 indCellDistance = 1;
@@ -135,10 +133,7 @@ for i = 1:size(filteredData, 1)
     AbsCoeffvsSiIrrWind(idxWind, idxIrr+1) = filteredData(i,4);
 end
 
-
-%%
-
-load('C:\Users\jvvirj\OneDrive - O365 Turun yliopisto\Työjutut\PerovskiteSilicon_TemperatureModels_062023\MATLAB\Comsol-Matlab-Final\PSCAllCond_intensity_v1\workspace.mat')
+% load('ExampleDataPerovskite.mat')
 
 indDataPoint = 1;
 indCellDistance = 1;
