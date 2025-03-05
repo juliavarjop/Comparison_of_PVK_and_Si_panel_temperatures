@@ -1,7 +1,7 @@
 % Use SaveResults.m to create the required files
 
-data = TminBackvsPSCIrrWind; %TaveCellsvsSiIrrWind; %TaveCellsvsPSCIrrWind; % TaveCellsvsSiIrrWind; %TaveCellsvsSiIrrWind; %load('TaveCellsvsSiIrrWind.mat').TaveCellsvsSiIrrWind;
-data2 = AbsCoeffvsPSCIrrWind; %load('AbsCoeffvsSiIrrWind.mat').AbsCoeffvsSiIrrWind;
+data = TminBackvsPSCIrrWind; 
+data2 = AbsCoeffvsPSCIrrWind; 
 
 % Model inputs
 Tcell = data(:,2:7);
@@ -14,7 +14,7 @@ n=0.2;
 beta=-0.0035;
 Tr=25;
 
-%% Sandia Model
+% Sandia Model
 
 y=log((Tcell-Tamb)./E);
 
@@ -56,7 +56,7 @@ p_0to10 = polyfit(Xdata_WS(x1 & x4),Ydata(x1 & x4),1)
 a=p_0to10(:,2);
 b=p_0to10(:,1);
 
-%% Faiman Model
+% Faiman Model
 
 y = E./(Tcell-Tamb);
 
@@ -86,7 +86,7 @@ p_0to10 = polyfit(Xdata_WS(x1 & x4),Ydata(x1 & x4),1)
 U_L1=p_0to10(:,1);
 U_L0=p_0to10(:,2);
 
-%% Mattei Model
+% Mattei Model
 
 y=(E.*(at-n-beta*n.*(Tcell-Tr)))./(Tcell-Tamb);
 
@@ -117,7 +117,7 @@ p_0to10 = polyfit(Xdata_WS(x1 & x4),Ydata(x1 & x4),1)
 B=p_0to10(:,1);
 A=p_0to10(:,2);
 
-%% Skoplaki
+% Skoplaki
 
 y=(at.*E.*(1-(n./at)))./(Tcell-Tamb);  
 
@@ -150,7 +150,7 @@ U_Loss2=p_0to10(:,2);
 U_Loss=U_Loss1+U_Loss2;
 
 
-%% PVsyst Model
+% PVsyst Model
 y = (E.*at.*(1-n))./(Tcell-Tamb);
 
 % Cell Distance 1 cm
