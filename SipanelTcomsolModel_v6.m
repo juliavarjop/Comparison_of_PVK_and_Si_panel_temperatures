@@ -1,9 +1,7 @@
 
 function [model,TcellAve,TcellAveTop,TcellAveBack,TmodAve,TcellMax,Conv_AveTop,Conv_AveBack,Conv_AveSide,Rad_AveTop,Rad_AveBack,Rad_AveSide,CutLineCells,CutLineTop,CutLineBack,CutLineCellsX,CutLineTopX,CutLineBackX] = SipanelTcomsolModel_v6(Tamb,v_wind,cellDistance,Qcell,pathFolder,Tcell_init)
 
-% Model exported on Jul 1 2024, 13:40 by COMSOL 6.2.0.290.
-
-% With min mesh size 0.02
+%%% 22.1.2024 version %%%
 
 % Import comsol packages
 import com.comsol.model.*
@@ -15,7 +13,6 @@ model = ModelUtil.create('Model');
 model.modelPath(pathFolder);
 
 model.param.set('Tamb', [num2str(Tamb), '[degC]'], 'Ambient temperature');
-% model.param.set('Irr', '800[W/m^2]', 'Solar irradiance');
 model.param.set('v_wind', num2str(v_wind), 'Wind speed');
 model.param.set('l', [num2str(cellDistance), '[cm]'], 'Distance between cells');
 model.param.set('z_glass', '3000[um]', 'Thickness of glass');
@@ -466,4 +463,5 @@ model.result('pg1').feature('line1').set('coloring', 'uniform');
 model.result('pg1').feature('line1').set('color', 'fromtheme');
 model.result('pg1').feature('line1').set('smooth', 'internal');
 model.result('pg1').feature('line1').set('resolution', 'normal');
+
 end
