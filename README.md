@@ -24,6 +24,6 @@ To determine Sandia, Faiman, PVsyst, Mattei, and TRNSYS temperature model parame
 
 NOTES: 
 
-- In main_PVKpanelT_simpleComparison_VaryingConditions.m only one environmental parameter is varied at the time. Except the varied parameter, the ambient temperature is 20°C, wind speed is 1m/s, and irradiance is 800W/m^2. 
-- In main_PVKpanelT_simpleComparison_AllConditions.m the environmental conditions are varied simultaneously. 
-- The temperature model parameters are determined using the data simulated with main_PVKpanelT_simpleComparison_AllConditions.m
+- In main_PVKpanelT_VaryingConditions.m only one environmental parameter is varied at the time. Except the varied parameter, the ambient temperature is 20°C, wind speed is 1m/s, and irradiance is 800W/m^2. 
+- In main_PVKpanelT_AllConditions.m the environmental conditions are varied simultaneously. 
+- The temperature model parameters are determined using the data simulated with main_PVKpanelT_AllConditions.m
