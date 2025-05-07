@@ -2,15 +2,15 @@
 
 To run the present COMSOL Multiphysics simulations with MATLAB:
 
-1. Import AM1.5 Global spectrum data from https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra and save it as AM15.mat
+1. Import AM1.5 Global spectrum data e.g. from https://www.pveducation.org/pvcdrom/appendices/standard-solar-spectra and save it as AM15.mat
 
 2. Create COMSOL model for the solar panels using 
 	- SipanelTcomsolModel_v6.m and
 	- PSCpanelTcomsolModel_v8.m
 
 3. Set the boundary conditions (environmental conditions and heat generation) and run the simulation using 
-	- main_PVKpanelT_simpleComparison_VaryingConditions.m or
-	- main_PVKpanelT_simpleComparison_AllConditions.m
+	- main_PVKpanelT_VaryingConditions.m or
+	- main_PVKpanelT_AllConditions.m
 
 
 To determine Sandia, Faiman, PVsyst, Mattei, and TRNSYS temperature model parameters:
